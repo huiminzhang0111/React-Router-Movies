@@ -1,15 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 
-import { useParams } from 'react-router-dom';
+import { useParams, useRouteMatch, Route, Switch,  NavLink } from 'react-router-dom';
 
-import { MovieDetails } from './MovieList';
-
-import MovieCard from './MovieCard';
 
 export default function Movie(props) {
-
-  const {id} = useParams();
+  const { id } = useParams();
+  const { path, url } = useRouteMatch();
 
   // const movie = movies.find(movie => movie.id == movieId);
 
@@ -53,15 +50,15 @@ export default function Movie(props) {
         <div className="movie-metascore">
           Metascore: <strong>{metascore}</strong>
         </div>
-        <h3>Actors</h3>
-
-        {stars.map(star => (
-          <div key={star} className="movie-star">
-            {star}
-          </div>
-        ))}
+          <h3>Actors</h3>         
+          {stars.map(star => (
+            <div key={star} className="movie-star">
+              {star}
+            </div>
+          ))}
       </div>
       <div className="save-button">Save</div>
+
     </div>
   );
 }

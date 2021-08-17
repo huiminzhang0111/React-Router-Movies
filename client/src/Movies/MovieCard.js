@@ -1,10 +1,11 @@
 import React from 'react';
 
 export default function MovieCard (props) {
-  const {actors} = props;
+  const { detail } = props;
+
   return (
     <div>
-      <p className='movie-card'>{actors}</p>
+      <p className='movie-card'>{detail}</p>
     </div>
   );
 }
